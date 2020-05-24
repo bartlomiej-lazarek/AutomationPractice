@@ -18,3 +18,6 @@ class AuthenticationPage(BasePage):
         self.driver.find_element(*AuthenticationPageLocators.RETRIEVE_PASSWORD_EMAIL).send_keys(email)
         self.driver.find_element(*AuthenticationPageLocators.RETRIEVE_PASSWORD_BUTTON).click()
 
+
+    def check_error_login_is_displayed(self):
+        return self.driver.find_element(*AuthenticationPageLocators.LOGIN_ALERT_ERROR).is_displayed()
