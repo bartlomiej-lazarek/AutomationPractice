@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 class BasePageLocators:
     CONTACT_US = (By.CSS_SELECTOR, "[title='Contact Us']")
     SIGN_IN = (By.CSS_SELECTOR, ".login")
+    SIGN_OUT = (By.CSS_SELECTOR, ".logout")
     MY_ACCOUNT = (By.CSS_SELECTOR, ".account")
     PRODUCT_SEARCH_INPUT = (By.CSS_SELECTOR, "#search_query_top")
     PRODUCT_SEARCH_BUTTON = (By.CSS_SELECTOR, "[name='submit_search']")
@@ -20,10 +21,11 @@ class BasePageLocators:
 class AuthenticationPageLocators:
     CREATE_ACCOUNT_EMAIL_INPUT = (By.CSS_SELECTOR, "label[for='email_create'] + input")
     CREATE_ACCOUNT_BUTTON = (By.CSS_SELECTOR, "#SubmitCreate")
+    CREATE_ACCOUNT_ERROR = (By.CSS_SELECTOR, "#create_account_error")
     LOGIN_EMAIL_INPUT = (By.CSS_SELECTOR, "label[for='email'] + input")
     LOGIN_PASSWORD_INPUT = (By.CSS_SELECTOR, "#passwd")
+    LOGIN_BUTTON = (By.CSS_SELECTOR, "#SubmitLogin")
     LOGIN_ALERT_ERROR = (By.CSS_SELECTOR, "h1 + .alert-danger")
-    CREATE_ACCOUNT_ERROR = (By.CSS_SELECTOR, "#create_account_error")
 
 
 class RegistrationPageLocators:
