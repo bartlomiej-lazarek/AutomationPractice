@@ -14,3 +14,8 @@ Feature: Login to portal
     When I open authentication page
     And login with empty username and password 'tester123'
     Then Verify error message contains 'An email address required'
+
+  Scenario: Log in with empty password field
+    When I open authentication page
+    And login with empty username 'tester@tester.pl' and empty password
+    Then Verify error message contains 'Password is required.'

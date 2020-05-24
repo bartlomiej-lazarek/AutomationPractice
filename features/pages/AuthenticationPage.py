@@ -29,3 +29,11 @@ class AuthenticationPage(BasePage):
             errors_list.append(element.text)
 
         return errors_list
+
+    def check_given_error_in_errors_list_exist(self, given_error):
+        errors_list = self.get_login_errors_list()
+
+        for error in errors_list:
+            if error == given_error:
+                return True
+        return False
