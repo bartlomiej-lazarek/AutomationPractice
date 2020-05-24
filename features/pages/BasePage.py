@@ -26,3 +26,6 @@ class BasePage:
 
     def hover_on_cart(self):
         ActionChains(self.driver).move_to_element(*BasePageLocators.SHOPPING_CART).perform()
+
+    def get_account_name(self):
+        return self.driver.find_element(*BasePageLocators.MY_ACCOUNT).text
