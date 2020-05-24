@@ -22,6 +22,8 @@ class AuthenticationPageLocators:
     CREATE_ACCOUNT_BUTTON = (By.CSS_SELECTOR, "#SubmitCreate")
     LOGIN_EMAIL_INPUT = (By.CSS_SELECTOR, "label[for='email'] + input")
     LOGIN_PASSWORD_INPUT = (By.CSS_SELECTOR, "#passwd")
+    LOGIN_ALERT_ERROR = (By.CSS_SELECTOR, "h1 + .alert-danger")
+    CREATE_ACCOUNT_ERROR = (By.CSS_SELECTOR, "#create_account_error")
 
 
 class RegistrationPageLocators:
@@ -48,3 +50,4 @@ class RegistrationPageLocators:
     MOBILE_PHONE = (By.CSS_SELECTOR, "#phone_mobile")
     ADDRESS_ALIAS = (By.CSS_SELECTOR, "#alias")
     REGISTER_BUTTON = (By.CSS_SELECTOR, "#submitAccount")
+    REGISTRATION_ERROR = (By.CSS_SELECTOR, ".alert-danger")
