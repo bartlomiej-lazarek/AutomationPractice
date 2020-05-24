@@ -13,12 +13,9 @@ class BasePageLocators:
     WOMAN_CATEGORY = (By.CSS_SELECTOR, "a[title='Women']")
     DRESSES_CATEGORY = (By.CSS_SELECTOR, "a[title='Dresses']")
     T_SHIRTS_CATEGORY = (By.CSS_SELECTOR, "a[title='T-shirts']")
-    POPULAR_FILTER = (By.CSS_SELECTOR, "a.homefeatured")
-    BEST_SELLERS_FILTER = (By.CSS_SELECTOR, "a.blockbestsellers")
-    PRODUCTS_LIST = (By.CSS_SELECTOR, ".product_list")
 
 
-class AuthenticationPageLocators:
+class AuthenticationPageLocators(BasePageLocators):
     CREATE_ACCOUNT_EMAIL_INPUT = (By.CSS_SELECTOR, "label[for='email_create'] + input")
     CREATE_ACCOUNT_BUTTON = (By.CSS_SELECTOR, "#SubmitCreate")
     CREATE_ACCOUNT_ERROR = (By.CSS_SELECTOR, "#create_account_error")
@@ -26,9 +23,12 @@ class AuthenticationPageLocators:
     LOGIN_PASSWORD_INPUT = (By.CSS_SELECTOR, "#passwd")
     LOGIN_BUTTON = (By.CSS_SELECTOR, "#SubmitLogin")
     LOGIN_ALERT_ERROR = (By.CSS_SELECTOR, "h1 + .alert-danger")
+    RETRIEVE_PASSWORD = (By.CSS_SELECTOR, "[title='Recover your forgotten password']")
+    RETRIEVE_PASSWORD_EMAIL = (By.CSS_SELECTOR, "#email")
+    RETRIEVE_PASSWORD_BUTTON = (By.CSS_SELECTOR, "p.submit [type='submit']")
 
 
-class RegistrationPageLocators:
+class RegistrationPageLocators(BasePageLocators):
     TITLE_MR = (By.CSS_SELECTOR, "#id_gender1")
     TITLE_MRS = (By.CSS_SELECTOR, "#id_gender2")
     FIRST_NAME = (By.CSS_SELECTOR, "#customer_firstname")
