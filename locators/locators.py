@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 class BasePageLocators:
     CONTACT_US = (By.CSS_SELECTOR, "[title='Contact Us']")
     SIGN_IN = (By.CSS_SELECTOR, ".login")
+    MY_ACCOUNT = (By.CSS_SELECTOR, ".account")
     PRODUCT_SEARCH_INPUT = (By.CSS_SELECTOR, "#search_query_top")
     PRODUCT_SEARCH_BUTTON = (By.CSS_SELECTOR, "[name='submit_search']")
     SHOP_LOGO = (By.CSS_SELECTOR, ".logo ")
