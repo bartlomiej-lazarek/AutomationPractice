@@ -9,3 +9,8 @@ Feature: Login to portal
     When I open authentication page
     And login with username 'tester@tester.pl' and password 'tester123'
     Then I verify that I unsuccessfully logged in by checking error message
+
+  Scenario: Log in with empty email field
+    When I open authentication page
+    And login with empty username and password 'tester123'
+    Then Verify error message contains 'An email address required'

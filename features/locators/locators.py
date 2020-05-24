@@ -23,6 +23,7 @@ class AuthenticationPageLocators(BasePageLocators):
     LOGIN_PASSWORD_INPUT = (By.CSS_SELECTOR, "#passwd")
     LOGIN_BUTTON = (By.CSS_SELECTOR, "#SubmitLogin")
     LOGIN_ALERT_ERROR = (By.CSS_SELECTOR, "h1 + .alert-danger")
+    LOGIN_ALERT_ERRORS_LIST = (By.CSS_SELECTOR, "h1 + .alert-danger ol li")
     RETRIEVE_PASSWORD = (By.CSS_SELECTOR, "[title='Recover your forgotten password']")
     RETRIEVE_PASSWORD_EMAIL = (By.CSS_SELECTOR, "#email")
     RETRIEVE_PASSWORD_BUTTON = (By.CSS_SELECTOR, "p.submit [type='submit']")
