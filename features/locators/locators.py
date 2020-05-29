@@ -11,6 +11,13 @@ class BasePageLocators:
     SHOP_LOGO = (By.CSS_SELECTOR, ".logo ")
     SHOPPING_CART = (By.CSS_SELECTOR, ".shopping_cart [href='http://automationpractice.com/index.php?controller=order']")
     WOMAN_CATEGORY = (By.CSS_SELECTOR, "a[title='Women']")
+    WOMAN_TOPS = (By.CSS_SELECTOR, "[title='Tops']")
+    WOMAN_TSHIRTS = (By.CSS_SELECTOR, "[title='T-shirts']")
+    WOMAN_BLOUSES = (By.CSS_SELECTOR, "[title='Blouses']")
+    WOMAN_DRESSES = (By.CSS_SELECTOR, "[title='Dresses']")
+    WOMAN_CASUAL_DRESSES = (By.CSS_SELECTOR, "[title='Casual Dresses']")
+    WOMAN_EVENING_DRESSES = (By.CSS_SELECTOR, "[title='Evening Dresses']")
+    WOMAN_SUMMER_DRESSES = (By.CSS_SELECTOR, "[title='Summer Dresses']")
     DRESSES_CATEGORY = (By.CSS_SELECTOR, "a[title='Dresses']")
     T_SHIRTS_CATEGORY = (By.CSS_SELECTOR, "a[title='T-shirts']")
 
@@ -60,8 +67,8 @@ class RegistrationPageLocators(BasePageLocators):
 class HomePageLocators(BasePageLocators):
     POPULAR_TAB = (By.CSS_SELECTOR, "[href='#homefeatured']")
     BEST_SELLERS_TAB = (By.CSS_SELECTOR, "[href='#blockbestsellers']")
-    PRODUCTS_LIST = (By.CSS_SELECTOR, ".product_list")
-    ACTIVE_PRODUCTS_LIST = (By.CSS_SELECTOR, ".product_list.active")
+    PRODUCTS_LIST = (By.CSS_SELECTOR, ".product_list li")
+    ACTIVE_PRODUCTS_LIST = (By.CSS_SELECTOR, ".product_list.active li")
     PRODUCT = (By.CSS_SELECTOR, "div.product-container")
     PRODUCT_PRICE = (By.CSS_SELECTOR, "div.right-block span.product-price.price")
     PRODUCT_DISCOUNT_PERCENT = (By.CSS_SELECTOR, "div.right-block span.price-percent-reduction")
@@ -72,6 +79,43 @@ class HomePageLocators(BasePageLocators):
     PRODUCT_VIEW_SIZE_SELECT = (By.CSS_SELECTOR, "#group_1")
     PRODUCT_VIEW_COLOR_LIST = (By.CSS_SELECTOR, "#color_to_pick_list")
     PRODUCT_VIEW_ADD_TO_CART = (By.CSS_SELECTOR, "button.exclusive")
-    CONTINUE_SHOPPING = (By.CSS_SELECTOR, ".continue")
+    CONTINUE_SHOPPING = (By.CSS_SELECTOR, "[title='Continue shopping']")
     PROCEED_TO_CHECKOUT = (By.CSS_SELECTOR, "[title='Proceed to checkout']")
 
+
+class CheckoutProcessLocators(BasePageLocators):
+    PROCEED_TO_CHECKOUT = (By.CSS_SELECTOR, "[title='Proceed to checkout']")
+    CONTINUE_SHOPPING = (By.CSS_SELECTOR, "[title='Continue shopping']")
+    CURRENT_STEP = (By.CSS_SELECTOR, "#navigation_page")
+
+
+class CartSummaryPageLocators(BasePageLocators, CheckoutProcessLocators):
+    PRODUCT_LIST = (By.CSS_SELECTOR, "tbody tr")
+    PRODUCT_QTY = (By.CSS_SELECTOR, ".cart_quantity_input")
+    PRODUCT_UNIT_PRICE = (By.CSS_SELECTOR, ".cart_unit span span.price")
+    PRODUCT_TOTAL_PRICE = (By.CSS_SELECTOR, ".cart_total span.price")
+    TOTAL_PRODUCTS_PRICE = (By.CSS_SELECTOR, "#total_product")
+    TOTAL_SHIPPING_PRICE = (By.CSS_SELECTOR, "#total_shipping")
+    TOTAL_PRICE_NET = (By.CSS_SELECTOR, "#total_price_without_tax")
+    TOTAL_TAX = (By.CSS_SELECTOR, "#total_tax")
+    TOTAL_PRICE_GROSS = (By.CSS_SELECTOR, "#total_price")
+
+
+class AddressPageLocators(BasePageLocators, RegistrationPageLocators, CheckoutProcessLocators):
+    COMMENT = (By.CSS_SELECTOR, "[name='message']")
+    UPDATE_INVOICE_ADDRESS = (By.CSS_SELECTOR, "#address_invoice .address_update a.button")
+    UPDATE_DELIVERY_ADDRESS = (By.CSS_SELECTOR, "#address_delivery .address_update a.button")
+
+
+class ShippingPageLocators(BasePageLocators, CheckoutProcessLocators):
+    AGREE_TERMS = (By.CSS_SELECTOR, "#cgv")
+    DELIVERY_OPTION = (By.CSS_SELECTOR, "input.delivery_option_radio")
+    BOX_ERROR = (By.CSS_SELECTOR, ".fancybox-error")
+
+
+class PaymentPageLocators(BasePageLocators, CheckoutProcessLocators):
+    PAY_BY_BANK_WIRE = (By.CSS_SELECTOR, ".bankwire")
+    PAY_BY_CHECK = (By.CSS_SELECTOR, ".cheque")
+    OTHER_PAYMENT_METHODS = (By.CSS_SELECTOR, "#cart_navigation a")
+    CONFIRM_ORDER = (By.CSS_SELECTOR, "#cart_navigation button")
+    COMPLETE_ORDER_INFORMATION = (By.CSS_SELECTOR, ".box p strong.dark")
