@@ -1,3 +1,4 @@
+import time
 from datetime import datetime
 import random
 
@@ -46,6 +47,7 @@ class RegistrationPage(BasePage):
         self.driver.find_element(*RegistrationPageLocators.CITY).send_keys(city)
 
     def set_random_state(self):
+        time.sleep(1)
         Select(self.driver.find_element(*RegistrationPageLocators.STATE)).select_by_index(random.randint(1, 50))
 
     def set_postal_code(self, postal_code):
