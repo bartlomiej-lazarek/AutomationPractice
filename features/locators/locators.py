@@ -55,3 +55,23 @@ class RegistrationPageLocators(BasePageLocators):
     ADDRESS_ALIAS = (By.CSS_SELECTOR, "#alias")
     REGISTER_BUTTON = (By.CSS_SELECTOR, "#submitAccount")
     REGISTRATION_ERROR = (By.CSS_SELECTOR, ".alert-danger")
+
+
+class HomePageLocators(BasePageLocators):
+    POPULAR_TAB = (By.CSS_SELECTOR, "[href='#homefeatured']")
+    BEST_SELLERS_TAB = (By.CSS_SELECTOR, "[href='#blockbestsellers']")
+    PRODUCTS_LIST = (By.CSS_SELECTOR, ".product_list")
+    ACTIVE_PRODUCTS_LIST = (By.CSS_SELECTOR, ".product_list.active")
+    PRODUCT = (By.CSS_SELECTOR, "div.product-container")
+    PRODUCT_PRICE = (By.CSS_SELECTOR, "div.right-block span.product-price.price")
+    PRODUCT_DISCOUNT_PERCENT = (By.CSS_SELECTOR, "div.right-block span.price-percent-reduction")
+    PRODUCT_PRICE_BEFORE_DISCOUNT = (By.CSS_SELECTOR, "div.right-block span.old-price")
+    PRODUCT_LIST_ADD_TO_CART = (By.CSS_SELECTOR, "a.ajax_add_to_cart_button")
+    QUICK_VIEW = (By.CSS_SELECTOR, "a.quick-view")
+    PRODUCT_VIEW_PRODUCT_QTY = (By.CSS_SELECTOR, "#quantity_wanted")
+    PRODUCT_VIEW_SIZE_SELECT = (By.CSS_SELECTOR, "#group_1")
+    PRODUCT_VIEW_COLOR_LIST = (By.CSS_SELECTOR, "#color_to_pick_list")
+    PRODUCT_VIEW_ADD_TO_CART = (By.CSS_SELECTOR, "button.exclusive")
+    CONTINUE_SHOPPING = (By.CSS_SELECTOR, ".continue")
+    PROCEED_TO_CHECKOUT = (By.CSS_SELECTOR, "[title='Proceed to checkout']")
+
