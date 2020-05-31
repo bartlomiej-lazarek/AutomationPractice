@@ -1,6 +1,6 @@
 from behave import when, then, step
-from features.pages.AuthenticationPage import AuthenticationPage
-from features.pages.BasePage import BasePage
+from features.pages.authentication_page import AuthenticationPage
+from features.pages.base_page import BasePage
 
 
 # Scenario: Log in using valid data

@@ -1,8 +1,7 @@
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.select import Select
-
 from features.locators.locators import HomePageLocators
-from features.pages.BasePage import BasePage
+from features.pages.base_page import BasePage
 
 
 class HomePage(BasePage):

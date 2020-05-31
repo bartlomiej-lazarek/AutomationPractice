@@ -1,11 +1,9 @@
 import time
 from datetime import datetime
 import random
-
 from selenium.webdriver.support.select import Select
-
 from features.locators.locators import RegistrationPageLocators
-from features.pages.BasePage import BasePage
+from features.pages.base_page import BasePage
 
 
 class RegistrationPage(BasePage):
@@ -80,3 +78,16 @@ class RegistrationPage(BasePage):
         self.set_country()
         self.set_mobile_phone(phone)
         self.driver.find_element(*RegistrationPageLocators.REGISTER_BUTTON).click()
+
+    def change_address(self, **kwargs):
+        self.set_first_name(kwargs.get('password'))
+        self.set_last_name(kwargs.get('password'))
+        self.set_company(kwargs.get('company'))
+        self.set_address(kwargs.get('address'))
+        self.set_address_line2((kwargs.get('address2')))
+        self.set_city(kwargs.get('city'))
+        self.set_postal_code(kwargs.get('postal_code'))
+        self.set_home_phone(kwargs.get('home_phone'))
+        self.set_mobile_phone(kwargs.get('mobile_phone'))
+        self.set_additional_information(kwargs.get('additional_information'))
+        self.driver.find_element_by_css_selector("#submitAddress").click()

@@ -1,7 +1,7 @@
 from behave import then, step
-from features.pages.AuthenticationPage import AuthenticationPage
-from features.pages.BasePage import BasePage
-from features.pages.RegistrationPage import RegistrationPage
+from features.pages.authentication_page import AuthenticationPage
+from features.pages.base_page import BasePage
+from features.pages.registration_page import RegistrationPage
 import random
 
 

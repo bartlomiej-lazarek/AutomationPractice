@@ -10,7 +10,6 @@ Feature: Register new account in portal
       |email|title|name|last_name|password|address|city|postal_code|phone|result|
       |valid@email.com|MR|Jan|Kowalski|123123|Testowa 10|Bydgoszcz|12312|123123123|successfully|
 
-
     Examples: using valid data but all fields aren't filled
       |email|title|name|last_name|password|address|city|postal_code|phone|result|
       |valid@email.com|MR|Jan|Kowalski|empty|Testowa 10|empty|12312|123123123|unsuccessfully|

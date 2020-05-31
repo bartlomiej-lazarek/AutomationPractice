@@ -1,6 +1,5 @@
-from selenium.common.exceptions import NoSuchElementException
 from features.locators.locators import AuthenticationPageLocators
-from features.pages.BasePage import BasePage
+from features.pages.base_page import BasePage
 
 
 class AuthenticationPage(BasePage):
@@ -23,7 +22,6 @@ class AuthenticationPage(BasePage):
         return self.driver.find_element(*AuthenticationPageLocators.LOGIN_ALERT_ERROR).is_displayed()
 
     def get_errors_list(self, type_error):
-
         if type_error == "login":
             li_elements_list = self.driver.find_elements(*AuthenticationPageLocators.LOGIN_ALERT_ERRORS_LIST)
         elif type_error == "register":
@@ -33,7 +31,6 @@ class AuthenticationPage(BasePage):
 
         for element in li_elements_list:
             errors_list.append(element.text)
-
         return errors_list
 
     def check_given_error_in_errors_list_exist(self, given_error, type_error):
