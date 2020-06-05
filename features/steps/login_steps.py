@@ -43,7 +43,7 @@ def step_impl(context):
 
 @then("Verify error message contains 'An email address required'")
 def step_impl(context):
-    AuthenticationPage(context.driver).check_given_error_in_errors_list_exist("An email address required")
+    AuthenticationPage(context.driver).check_given_error_in_errors_list_exist("An email address required", "login")
 
 
 # Scenario: Log in with empty password field
@@ -55,4 +55,4 @@ def step_impl(context):
 
 @then("Verify error message contains 'Password is required.'")
 def step_impl(context):
-    AuthenticationPage(context.driver).check_given_error_in_errors_list_exist("Password is required")
+    AuthenticationPage(context.driver).check_given_error_in_errors_list_exist("Password is required", "login")
