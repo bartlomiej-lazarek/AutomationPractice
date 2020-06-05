@@ -35,3 +35,19 @@ class HomePage(BasePage):
 
     def proceed_to_checkout(self):
         self.driver.find_element(*HomePageLocators.PROCEED_TO_CHECKOUT).click()
+
+    def check_search_warning_displayed(self):
+        if len(self.driver.find_elements(*HomePageLocators.SEARCH_WARNING)) > 0:
+            return True
+        else:
+            return False
+
+    def check_search_results(self, search_keyword):
+        products = self.driver.find_elements(*HomePageLocators.PRODUCTS_LIST)
+
+        for product in products:
+            if search_keyword not in product.find_element(*HomePageLocators.PRODUCT_NAME).text:
+                return False
+            else:
+                continue
+        return True
