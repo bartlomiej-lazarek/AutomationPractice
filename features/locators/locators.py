@@ -67,9 +67,10 @@ class RegistrationPageLocators(BasePageLocators):
 class HomePageLocators(BasePageLocators):
     POPULAR_TAB = (By.CSS_SELECTOR, "[href='#homefeatured']")
     BEST_SELLERS_TAB = (By.CSS_SELECTOR, "[href='#blockbestsellers']")
-    PRODUCTS_LIST = (By.CSS_SELECTOR, ".product_list li")
+    PRODUCTS_LIST = (By.CSS_SELECTOR, ".product_list > li")
     ACTIVE_PRODUCTS_LIST = (By.CSS_SELECTOR, ".product_list.active li")
     PRODUCT = (By.CSS_SELECTOR, "div.product-container")
+    PRODUCT_NAME = (By.CSS_SELECTOR, ".product-name")
     PRODUCT_PRICE = (By.CSS_SELECTOR, "div.right-block span.product-price.price")
     PRODUCT_DISCOUNT_PERCENT = (By.CSS_SELECTOR, "div.right-block span.price-percent-reduction")
     PRODUCT_PRICE_BEFORE_DISCOUNT = (By.CSS_SELECTOR, "div.right-block span.old-price")
@@ -81,6 +82,8 @@ class HomePageLocators(BasePageLocators):
     PRODUCT_VIEW_ADD_TO_CART = (By.CSS_SELECTOR, "button.exclusive")
     CONTINUE_SHOPPING = (By.CSS_SELECTOR, "[title='Continue shopping']")
     PROCEED_TO_CHECKOUT = (By.CSS_SELECTOR, "[title='Proceed to checkout']")
+    SEARCH_RESULT = (By.CSS_SELECTOR, ".heading-counter")
+    SEARCH_WARNING = (By.CSS_SELECTOR, ".alert-warning")
 
 
 class CheckoutProcessLocators(BasePageLocators):
@@ -89,7 +92,7 @@ class CheckoutProcessLocators(BasePageLocators):
     CURRENT_STEP = (By.CSS_SELECTOR, "#navigation_page")
 
 
-class CartSummaryPageLocators(BasePageLocators, CheckoutProcessLocators):
+class CartSummaryPageLocators(CheckoutProcessLocators):
     PRODUCT_LIST = (By.CSS_SELECTOR, "tbody tr")
     PRODUCT_QTY = (By.CSS_SELECTOR, ".cart_quantity_input")
     PRODUCT_UNIT_PRICE = (By.CSS_SELECTOR, ".cart_unit span span.price")
@@ -101,19 +104,19 @@ class CartSummaryPageLocators(BasePageLocators, CheckoutProcessLocators):
     TOTAL_PRICE_GROSS = (By.CSS_SELECTOR, "#total_price")
 
 
-class AddressPageLocators(BasePageLocators, RegistrationPageLocators, CheckoutProcessLocators):
+class AddressPageLocators(RegistrationPageLocators, CheckoutProcessLocators):
     COMMENT = (By.CSS_SELECTOR, "[name='message']")
     UPDATE_INVOICE_ADDRESS = (By.CSS_SELECTOR, "#address_invoice .address_update a.button")
     UPDATE_DELIVERY_ADDRESS = (By.CSS_SELECTOR, "#address_delivery .address_update a.button")
 
 
-class ShippingPageLocators(BasePageLocators, CheckoutProcessLocators):
+class ShippingPageLocators(CheckoutProcessLocators):
     AGREE_TERMS = (By.CSS_SELECTOR, "#cgv")
     DELIVERY_OPTION = (By.CSS_SELECTOR, "input.delivery_option_radio")
     BOX_ERROR = (By.CSS_SELECTOR, ".fancybox-error")
 
 
-class PaymentPageLocators(BasePageLocators, CheckoutProcessLocators):
+class PaymentPageLocators(CheckoutProcessLocators):
     PAY_BY_BANK_WIRE = (By.CSS_SELECTOR, ".bankwire")
     PAY_BY_CHECK = (By.CSS_SELECTOR, ".cheque")
     OTHER_PAYMENT_METHODS = (By.CSS_SELECTOR, "#cart_navigation a")
