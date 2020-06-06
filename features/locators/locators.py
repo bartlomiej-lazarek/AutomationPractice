@@ -84,6 +84,9 @@ class HomePageLocators(BasePageLocators):
     PROCEED_TO_CHECKOUT = (By.CSS_SELECTOR, "[title='Proceed to checkout']")
     SEARCH_RESULT = (By.CSS_SELECTOR, ".heading-counter")
     SEARCH_WARNING = (By.CSS_SELECTOR, ".alert-warning")
+    LABEL_SUCCESSFULLY_ADDED_PRODUCT = (By.CSS_SELECTOR, ".layer_cart_product > h2")
+    QUICK_VIEW_LOADING = (By.CSS_SELECTOR, "#fancybox-loading")
+    QUICK_VIEW_IFRAME = (By.CSS_SELECTOR, ".fancybox-iframe")
 
 
 class CheckoutProcessLocators(BasePageLocators):

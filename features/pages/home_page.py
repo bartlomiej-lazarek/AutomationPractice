@@ -7,11 +7,21 @@ from features.pages.base_page import BasePage
 class HomePage(BasePage):
 
     def hover_on_product(self):
-        ActionChains(self.driver).move_to_element(*HomePageLocators.PRODUCT).perform()
+        ActionChains(self.driver).move_to_element(self.driver.find_element(*HomePageLocators.PRODUCT)).perform()
 
-    def add_product_to_cart(self):
-        self.hover_on_product()
-        self.driver.find_element(*HomePageLocators.PRODUCT_LIST_ADD_TO_CART).click()
+    def click_on_product(self):
+        self.driver.find_element(*HomePageLocators.PRODUCT).click()
+
+    def add_product_to_cart(self, view):
+        if view == "hover":
+            self.driver.find_element(*HomePageLocators.PRODUCT_LIST_ADD_TO_CART).click()
+        elif view == "quick_view":
+            self.driver.switch_to.frame(self.driver.find_element(*HomePageLocators.QUICK_VIEW_IFRAME))
+            self.driver.find_element(*HomePageLocators.PRODUCT_VIEW_ADD_TO_CART).click()
+            self.driver.switch_to.default_content()
+
+        elif view == "page_view":
+            self.driver.find_element(*HomePageLocators.PRODUCT_VIEW_ADD_TO_CART).click()
 
     def switch_to_popular_products(self):
         self.driver.find_element(*HomePageLocators.POPULAR_TAB).click()
@@ -29,9 +39,6 @@ class HomePage(BasePage):
 
     def set_product_size(self, product_size):
         Select(self.driver.find_element(*HomePageLocators.PRODUCT_VIEW_SIZE_SELECT)).select_by_visible_text(product_size)
-
-    def add_product_to_cart_quick_view(self):
-        self.driver.find_element(*HomePageLocators.PRODUCT_VIEW_ADD_TO_CART).click()
 
     def proceed_to_checkout(self):
         self.driver.find_element(*HomePageLocators.PROCEED_TO_CHECKOUT).click()
@@ -51,3 +58,9 @@ class HomePage(BasePage):
             else:
                 continue
         return True
+
+    def check_product_added_successfully(self):
+        if len(self.driver.find_elements(*HomePageLocators.LABEL_SUCCESSFULLY_ADDED_PRODUCT)) > 0:
+            return True
+        else:
+            return False
