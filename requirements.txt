@@ -1,0 +1,5 @@
+allure-behave==2.8.16
+allure-python-commons==2.8.16
+behave==1.2.6
+selenium==3.141.0
+
