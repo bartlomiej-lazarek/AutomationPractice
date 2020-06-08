@@ -3,7 +3,7 @@ Feature: Checkout Process
     Given login with username 'tester@tester.pl' and password 'tester'
     When I click on first product on page
     And I click Add to cart button on product page
-    And I click Proceed to checkout and go to Summary step
+    And I click Proceed to checkout and go to Cart
     And I click Proceed to checkout and go to Address step
     And I click I click Proceed to checkout and go to Shipping step
     And I click checkbox Terms of service
