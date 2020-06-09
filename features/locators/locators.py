@@ -90,9 +90,9 @@ class HomePageLocators(BasePageLocators):
 
 
 class CheckoutProcessLocators(BasePageLocators):
-    PROCEED_TO_CHECKOUT = (By.CSS_SELECTOR, "[title='Proceed to checkout']")
+    PROCEED_TO_CHECKOUT = (By.CSS_SELECTOR, ".button-medium")
     CONTINUE_SHOPPING = (By.CSS_SELECTOR, "[title='Continue shopping']")
-    CURRENT_STEP = (By.CSS_SELECTOR, "#navigation_page")
+    CURRENT_STEP = (By.CSS_SELECTOR, ".step_current span")
 
 
 class CartSummaryPageLocators(CheckoutProcessLocators):

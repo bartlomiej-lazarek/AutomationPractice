@@ -13,7 +13,7 @@ def step_impl(context):
 @step("login with username 'tester@tester.pl' and password 'tester'")
 def step_impl(context):
     page = AuthenticationPage(context.driver)
-    page.login("tester@tester.pl", "tester")
+    page.login("authentication_page", "tester@tester.pl", "tester")
 
 
 @then("I verify that I successfully logged in by checking account name")
@@ -26,7 +26,7 @@ def step_impl(context):
 @step("login with username 'tester@tester.pl' and password 'tester123'")
 def step_impl(context):
     page = AuthenticationPage(context.driver)
-    page.login("tester@tester.pl", "tester123")
+    page.login("authentication_page", "tester@tester.pl", "tester123")
 
 
 @then("I verify that I unsuccessfully logged in by checking error message")
@@ -38,7 +38,7 @@ def step_impl(context):
 @when("login with empty username and password 'tester123'")
 def step_impl(context):
     page = AuthenticationPage(context.driver)
-    page.login("", "tester123")
+    page.login("authentication_page", "", "tester123")
 
 
 @then("Verify error message contains 'An email address required'")
@@ -50,7 +50,7 @@ def step_impl(context):
 @when("login with empty username 'tester@tester.pl' and empty password")
 def step_impl(context):
     page = AuthenticationPage(context.driver)
-    page.login("tester@tester.pl", "")
+    page.login("authentication_page", "tester@tester.pl", "")
 
 
 @then("Verify error message contains 'Password is required.'")

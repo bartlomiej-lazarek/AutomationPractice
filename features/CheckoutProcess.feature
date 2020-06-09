@@ -1,7 +1,8 @@
 Feature: Checkout Process
   Scenario: Purchase product by logged user using Pay by bank wire
-    Given login with username 'tester@tester.pl' and password 'tester'
-    When I click on first product on page
+    Given Login with username 'tester@tester.pl' and password 'tester'
+    When I go to Home Page
+    And I click on first product on page
     And I click Add to cart button on product page
     And I click Proceed to checkout and go to Cart
     And I click Proceed to checkout and go to Address step

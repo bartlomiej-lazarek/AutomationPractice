@@ -1,6 +1,5 @@
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver import ActionChains
-
 from features.locators.locators import BasePageLocators
 
 
@@ -24,6 +23,9 @@ class BasePage:
 
     def go_to_my_account(self):
         self.driver.find_element(*BasePageLocators.MY_ACCOUNT).click()
+
+    def go_to_home_page(self):
+        self.driver.find_element(*BasePageLocators.SHOP_LOGO).click()
 
     def hover_on_cart(self):
         ActionChains(self.driver).move_to_element(*BasePageLocators.SHOPPING_CART).perform()

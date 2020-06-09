@@ -13,7 +13,13 @@ class CheckoutPage(BasePage):
         self.driver.find_element(*CheckoutProcessLocators.CONTINUE_SHOPPING).click()
 
     def proceed_to_checkout(self):
-        self.driver.find_element(*CheckoutProcessLocators.PROCEED_TO_CHECKOUT).click()
+        self.driver.find_elements(*CheckoutProcessLocators.PROCEED_TO_CHECKOUT)[1].click()
+
+    def check_current_step_equals_to_given(self, step):
+        if step in self.get_current_step():
+            return True
+        else:
+            return False
 
 
 class SummaryPage(CheckoutPage):
@@ -51,3 +57,9 @@ class PaymentPage(CheckoutPage):
 
     def confirm_order(self):
         self.driver.find_element(*PaymentPageLocators.CONFIRM_ORDER).click()
+
+    def check_order_was_created(self):
+        if self.driver.find_element(*PaymentPageLocators.COMPLETE_ORDER_INFORMATION).text == "Your order on My Store is complete.":
+            return True
+        else:
+            return False

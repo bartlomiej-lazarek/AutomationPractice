@@ -4,7 +4,9 @@ from features.pages.base_page import BasePage
 
 class AuthenticationPage(BasePage):
 
-    def login(self, email, password):
+    def login(self, page, email, password):
+        if page == "home_page":
+            self.sign_in()
         self.driver.find_element(*AuthenticationPageLocators.LOGIN_EMAIL_INPUT).send_keys(email)
         self.driver.find_element(*AuthenticationPageLocators.LOGIN_PASSWORD_INPUT).send_keys(password)
         self.driver.find_element(*AuthenticationPageLocators.LOGIN_BUTTON).click()
