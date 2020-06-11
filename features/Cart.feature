@@ -1,9 +1,15 @@
 Feature: Operation in shopping cart
 
-  Scenario: Check total products price
-    When I add {products.qty} random products to cart
+  Scenario Outline: Check total products price
+    When I add <products_qty> random products to cart
     And I go to cart
     Then Total products price should be equal to sum all unit products price in cart
+
+      Examples:
+        |products_qty|
+        |1           |
+        |3           |
+        |5           |
 
   Scenario: Change product qty in a cart by icons
     When I click on first product on page

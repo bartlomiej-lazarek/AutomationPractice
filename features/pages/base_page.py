@@ -1,5 +1,7 @@
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver import ActionChains
+from selenium.webdriver.support.wait import WebDriverWait
+
 from features.locators.locators import BasePageLocators
 
 
@@ -7,6 +9,7 @@ class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
+        self.wait = WebDriverWait(self.driver, 10, 0.5)
 
     def sign_in(self):
         self.driver.find_element(*BasePageLocators.SIGN_IN).click()

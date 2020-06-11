@@ -1,5 +1,5 @@
 from features.locators.locators import AddressPageLocators, CheckoutProcessLocators, ShippingPageLocators, \
-    PaymentPageLocators
+    PaymentPageLocators, CartSummaryPageLocators
 from features.pages.base_page import BasePage
 from features.pages.registration_page import RegistrationPage
 
@@ -23,7 +23,15 @@ class CheckoutPage(BasePage):
 
 
 class SummaryPage(CheckoutPage):
-    pass
+
+    def check_total_products_price(self):
+        total_products_price = float(self.driver.find_element(*CartSummaryPageLocators.TOTAL_PRODUCTS_PRICE).text[1:])
+        all_products_total_price = 0
+        products_prices = self.driver.find_elements(*CartSummaryPageLocators.PRODUCT_TOTAL_PRICE)
+
+        for product in products_prices:
+            all_products_total_price += float(product.text[1:])
+        assert round(total_products_price, 2) == round(all_products_total_price, 2)
 
 
 class AddressPage(CheckoutPage):

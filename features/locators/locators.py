@@ -68,7 +68,7 @@ class HomePageLocators(BasePageLocators):
     POPULAR_TAB = (By.CSS_SELECTOR, "[href='#homefeatured']")
     BEST_SELLERS_TAB = (By.CSS_SELECTOR, "[href='#blockbestsellers']")
     PRODUCTS_LIST = (By.CSS_SELECTOR, ".product_list > li")
-    ACTIVE_PRODUCTS_LIST = (By.CSS_SELECTOR, ".product_list.active li")
+    ACTIVE_PRODUCTS_LIST = (By.CSS_SELECTOR, ".product_list.active li .product-container")
     PRODUCT = (By.CSS_SELECTOR, "div.product-container")
     PRODUCT_NAME = (By.CSS_SELECTOR, ".product-name")
     PRODUCT_PRICE = (By.CSS_SELECTOR, "div.right-block span.product-price.price")

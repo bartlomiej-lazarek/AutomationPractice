@@ -1,3 +1,6 @@
+import random
+import time
+
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.select import Select
 from features.locators.locators import HomePageLocators
@@ -22,6 +25,17 @@ class HomePage(BasePage):
 
         elif view == "page_view":
             self.driver.find_element(*HomePageLocators.PRODUCT_VIEW_ADD_TO_CART).click()
+
+    def add_products_to_cart(self, products_qty):
+
+        for i in range(int(products_qty)):
+            products = self.driver.find_elements(*HomePageLocators.ACTIVE_PRODUCTS_LIST)
+            products[random.randint(0, len(products)-1)].click()
+            # todo better wait
+            time.sleep(3)
+            self.driver.find_element(*HomePageLocators.PRODUCT_VIEW_ADD_TO_CART).click()
+            self.driver.find_element(*HomePageLocators.CONTINUE_SHOPPING).click()
+            self.driver.find_element(*HomePageLocators.SHOP_LOGO).click()
 
     def switch_to_popular_products(self):
         self.driver.find_element(*HomePageLocators.POPULAR_TAB).click()
