@@ -1,3 +1,5 @@
+import time
+
 from features.locators.locators import AddressPageLocators, CheckoutProcessLocators, ShippingPageLocators, \
     PaymentPageLocators, CartSummaryPageLocators
 from features.pages.base_page import BasePage
@@ -32,6 +34,19 @@ class SummaryPage(CheckoutPage):
         for product in products_prices:
             all_products_total_price += float(product.text[1:])
         assert round(total_products_price, 2) == round(all_products_total_price, 2)
+
+    def increase_product_qty_by_1(self):
+        self.driver.find_element(*CartSummaryPageLocators.QTY_PLUS_ICON).click()
+        time.sleep(2)
+
+    def decrease_product_qty_by_1(self):
+        self.driver.find_element(*CartSummaryPageLocators.QTY_MINUS_ICON).click()
+
+    def get_product_qty(self):
+        return int(self.driver.find_element(*CartSummaryPageLocators.PRODUCT_QTY).get_attribute('value'))
+
+    def get_total_product_price(self):
+        return float(self.driver.find_element(*CartSummaryPageLocators.TOTAL_PRODUCTS_PRICE).text[1:])
 
 
 class AddressPage(CheckoutPage):

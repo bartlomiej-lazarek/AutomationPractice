@@ -22,3 +22,23 @@ def step_impl(context):
 def step_impl(context):
     page = SummaryPage(context.driver)
     page.check_total_products_price()
+
+
+# Scenario: Change product qty in a cart by icons
+@step("I click '+' icon in qty field")
+def step_impl(context):
+    page = SummaryPage(context.driver)
+    context.products_price = page.get_total_product_price()
+    page.increase_product_qty_by_1()
+
+
+@then("Products qty should be 2")
+def step_impl(context):
+    page = SummaryPage(context.driver)
+    assert page.get_product_qty() == 2
+
+
+@step("Total products price should be 2 times bigger")
+def step_impl(context):
+    page = SummaryPage(context.driver)
+    assert context.products_price * 2 == page.get_total_product_price()
