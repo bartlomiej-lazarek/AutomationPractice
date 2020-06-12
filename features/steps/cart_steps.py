@@ -42,3 +42,11 @@ def step_impl(context):
 def step_impl(context):
     page = SummaryPage(context.driver)
     assert context.products_price * 2 == page.get_total_product_price()
+
+
+# Scenario: Change product qty in a cart by input
+@step("I click in Qty input field and set 2")
+def step_impl(context):
+    page = SummaryPage(context.driver)
+    context.products_price = page.get_total_product_price()
+    page.set_product_qty(2)

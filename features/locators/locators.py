@@ -97,7 +97,7 @@ class CheckoutProcessLocators(BasePageLocators):
 
 class CartSummaryPageLocators(CheckoutProcessLocators):
     PRODUCT_LIST = (By.CSS_SELECTOR, "tbody tr")
-    PRODUCT_QTY = (By.CSS_SELECTOR, ".cart_quantity_input")
+    PRODUCT_QTY_INPUT = (By.CSS_SELECTOR, ".cart_quantity_input")
     QTY_PLUS_ICON = (By.CSS_SELECTOR, ".icon-plus")
     QTY_MINUS_ICON = (By.CSS_SELECTOR, ".icon-minus")
     PRODUCT_UNIT_PRICE = (By.CSS_SELECTOR, ".cart_unit span span.price")

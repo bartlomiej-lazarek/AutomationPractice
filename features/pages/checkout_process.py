@@ -1,5 +1,6 @@
 import time
 
+from selenium.webdriver.common.keys import Keys
 from features.locators.locators import AddressPageLocators, CheckoutProcessLocators, ShippingPageLocators, \
     PaymentPageLocators, CartSummaryPageLocators
 from features.pages.base_page import BasePage
@@ -43,10 +44,16 @@ class SummaryPage(CheckoutPage):
         self.driver.find_element(*CartSummaryPageLocators.QTY_MINUS_ICON).click()
 
     def get_product_qty(self):
-        return int(self.driver.find_element(*CartSummaryPageLocators.PRODUCT_QTY).get_attribute('value'))
+        return int(self.driver.find_element(*CartSummaryPageLocators.PRODUCT_QTY_INPUT).get_attribute('value'))
 
     def get_total_product_price(self):
         return float(self.driver.find_element(*CartSummaryPageLocators.TOTAL_PRODUCTS_PRICE).text[1:])
+
+    def set_product_qty(self, product_qty):
+        self.driver.find_element(*CartSummaryPageLocators.PRODUCT_QTY_INPUT).clear()
+        self.driver.find_element(*CartSummaryPageLocators.PRODUCT_QTY_INPUT).send_keys(product_qty)
+        self.driver.find_element(*CartSummaryPageLocators.PRODUCT_QTY_INPUT).send_keys(Keys.ENTER)
+        time.sleep(2)
 
 
 class AddressPage(CheckoutPage):
