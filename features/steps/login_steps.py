@@ -4,12 +4,6 @@ from features.pages.base_page import BasePage
 
 
 # Scenario: Log in using valid data
-@when("I open authentication page")
-def step_impl(context):
-    page = BasePage(context.driver)
-    page.sign_in()
-
-
 @step("login with username 'tester@tester.pl' and password 'tester'")
 def step_impl(context):
     page = AuthenticationPage(context.driver)

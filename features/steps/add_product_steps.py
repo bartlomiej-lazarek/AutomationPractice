@@ -9,10 +9,6 @@ def step_impl(context):
     page.hover_on_product()
 
 
-@step("I click Add to cart button")
-def step_impl(context):
-    page = HomePage(context.driver)
-    page.add_product_to_cart("hover")
 
 
 @then("Should be displayed message Product successfully added to your shopping cart")
@@ -33,15 +29,3 @@ def step_impl(context):
     page = HomePage(context.driver)
     page.add_product_to_cart("quick_view")
 
-
-# Scenario: Add product to cart from product page
-@when("I click on first product on page")
-def step_impl(context):
-    page = HomePage(context.driver)
-    page.click_on_product()
-
-
-@step("I click Add to cart button on product page")
-def step_impl(context):
-    page = HomePage(context.driver)
-    page.add_product_to_cart("page_view")

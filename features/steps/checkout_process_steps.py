@@ -1,13 +1,10 @@
 import time
 
-from behave import when, then, step, given
+from behave import when, step, given
 from features.pages.authentication_page import AuthenticationPage
 from features.pages.base_page import BasePage
 from features.pages.checkout_process import CheckoutPage, ShippingPage, PaymentPage
-from features.pages.home_page import HomePage
 
-
-#  Scenario: Purchase product by logged user using Pay by bank wire
 
 @given("Login with username 'tester@tester.pl' and password 'tester'")
 def step_impl(context):
@@ -19,12 +16,6 @@ def step_impl(context):
 def step_impl(context):
     page = BasePage(context.driver)
     page.go_to_home_page()
-
-
-@step("I click Proceed to checkout and go to Cart")
-def step_impl(context):
-    page = HomePage(context.driver)
-    page.proceed_to_checkout()
 
 
 @step("I click Proceed to checkout and go to Address step")
