@@ -1,5 +1,6 @@
 Feature: Register new account in portal
 
+  @base_page @authentication_page @registration_page
   Scenario Outline: Register new account
     When I open authentication page
     And I set <email> address, next I click Create an account button
@@ -18,7 +19,7 @@ Feature: Register new account in portal
       |email|title|name|last_name|password|address|city|postal_code|phone|result|
       |valid@email.com|MR|5125|Kowalski|123123|Testowa 2|1012312|21345|asd|unsuccessfully|
 
-
+  @base_page @authentication_page @registration_page
   Scenario: Register using invalid email
     When I open authentication page
     And I set email 'invalid@', next I click Create an account button

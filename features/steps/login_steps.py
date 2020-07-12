@@ -6,8 +6,7 @@ from features.pages.base_page import BasePage
 # Scenario: Log in using valid data
 @step("login with username 'tester@tester.pl' and password 'tester'")
 def step_impl(context):
-    page = AuthenticationPage(context.driver)
-    page.login("authentication_page", "tester@tester.pl", "tester")
+    context.authentication_page.login("authentication_page", "tester@tester.pl", "tester")
 
 
 @then("I verify that I successfully logged in by checking account name")
@@ -19,8 +18,7 @@ def step_impl(context):
 # Scenario: Log in using invalid data
 @step("login with username 'tester@tester.pl' and password 'tester123'")
 def step_impl(context):
-    page = AuthenticationPage(context.driver)
-    page.login("authentication_page", "tester@tester.pl", "tester123")
+    context.authentication_page.login("authentication_page", "tester@tester.pl", "tester123")
 
 
 @then("I verify that I unsuccessfully logged in by checking error message")
@@ -31,8 +29,7 @@ def step_impl(context):
 # Scenario: Log in with empty email field
 @when("login with empty username and password 'tester123'")
 def step_impl(context):
-    page = AuthenticationPage(context.driver)
-    page.login("authentication_page", "", "tester123")
+    context.authentication_page.login("authentication_page", "", "tester123")
 
 
 @then("Verify error message contains 'An email address required'")
@@ -43,8 +40,7 @@ def step_impl(context):
 # Scenario: Log in with empty password field
 @when("login with empty username 'tester@tester.pl' and empty password")
 def step_impl(context):
-    page = AuthenticationPage(context.driver)
-    page.login("authentication_page", "tester@tester.pl", "")
+    context.authentication_page.login("authentication_page", "tester@tester.pl", "")
 
 
 @then("Verify error message contains 'Password is required.'")

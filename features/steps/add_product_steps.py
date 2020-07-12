@@ -5,27 +5,21 @@ from features.pages.home_page import HomePage
 # Scenario: Add product to cart using button on hover on product
 @when("I hover on first product on page")
 def step_impl(context):
-    page = HomePage(context.driver)
-    page.hover_on_product()
-
-
+    context.home_page.hover_on_product()
 
 
 @then("Should be displayed message Product successfully added to your shopping cart")
 def step_impl(context):
-    page = HomePage(context.driver)
-    assert page.check_product_added_successfully()
+    assert context.home_page.check_product_added_successfully()
 
 
 # Scenario: Add product to cart using quick view
 @step("I click Quick view button")
 def step_impl(context):
-    page = HomePage(context.driver)
-    page.open_product_quick_view()
+    context.home_page.open_product_quick_view()
 
 
 @step("I click Add to cart button on quick view")
 def step_impl(context):
-    page = HomePage(context.driver)
-    page.add_product_to_cart("quick_view")
+    context.home_page.add_product_to_cart("quick_view")
 

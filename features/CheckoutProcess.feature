@@ -1,4 +1,5 @@
 Feature: Checkout Process
+  @base_page @authentication_page @checkout_page @shipping_page @payment_page
   Scenario: Purchase product by logged user using Pay by bank wire
     Given Login with username 'tester@tester.pl' and password 'tester'
     When I go to Home Page

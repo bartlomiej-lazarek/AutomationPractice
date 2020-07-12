@@ -1,5 +1,6 @@
 Feature: Operation in shopping cart
 
+  @home_page @base_page @summary_page
   Scenario Outline: Check total products price
     When I add <products_qty> random products to cart
     And I go to cart
@@ -11,6 +12,7 @@ Feature: Operation in shopping cart
         |3           |
         |5           |
 
+  @home_page @base_page @summary_page
   Scenario: Change product qty in a cart by icons
     When I click on first product on page
     And I click Add to cart button on product page
@@ -19,6 +21,7 @@ Feature: Operation in shopping cart
     Then Products qty should be 2
     And Total products price should be 2 times bigger
 
+  @home_page @base_page @summary_page
   Scenario: Change product qty in a cart by input
     When I click on first product on page
     And I click Add to cart button on product page
