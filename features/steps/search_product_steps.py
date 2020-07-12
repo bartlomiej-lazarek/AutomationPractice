@@ -1,5 +1,4 @@
 from behave import then, when
-from features.pages.home_page import HomePage
 
 
 # Scenario: Search with empty value

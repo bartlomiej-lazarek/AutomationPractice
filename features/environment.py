@@ -36,5 +36,5 @@ def before_scenario(context, scenario):
         context.payment_page = PaymentPage(context.driver)
 
 
-def after_scenario(context, feature):
+def after_scenario(context, scenario):
     context.driver.quit()

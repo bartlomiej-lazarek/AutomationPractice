@@ -1,5 +1,4 @@
 from behave import when, then, step
-from features.pages.home_page import HomePage
 
 
 # Scenario: Add product to cart using button on hover on product

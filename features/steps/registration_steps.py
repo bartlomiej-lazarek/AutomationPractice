@@ -1,7 +1,5 @@
 from behave import then, step
-from features.pages.authentication_page import AuthenticationPage
-from features.pages.base_page import BasePage
-from features.pages.registration_page import RegistrationPage
+
 import random
 
 
@@ -12,7 +10,8 @@ def step_impl(context, email):
     context.authentication_page.start_creating_account(email)
 
 
-@step("I set {title}, {name}, {last_name}, {password}, {address}, {city}, {postal_code}, {phone}, next I click Register button")
+@step("I set {title}, {name}, {last_name}, {password}, {address}, "
+      "{city}, {postal_code}, {phone}, next I click Register button")
 def step_impl(context, title, name, last_name, password, address, city, postal_code, phone):
     if password and city == "empty":
         password = ""
@@ -22,7 +21,6 @@ def step_impl(context, title, name, last_name, password, address, city, postal_c
 
 @then("I should {result} register new account")
 def step_impl(context, result):
-
     try:
         context.base_page.get_account_name()
     except Exception:

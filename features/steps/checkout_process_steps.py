@@ -1,9 +1,6 @@
 import time
 
 from behave import when, step, given
-from features.pages.authentication_page import AuthenticationPage
-from features.pages.base_page import BasePage
-from features.pages.checkout_process import CheckoutPage, ShippingPage, PaymentPage
 
 
 @given("Login with username 'tester@tester.pl' and password 'tester'")

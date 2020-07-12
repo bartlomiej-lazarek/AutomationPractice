@@ -1,9 +1,5 @@
 from behave import when, then, step
 
-from features.pages.base_page import BasePage
-from features.pages.checkout_process import SummaryPage
-from features.pages.home_page import HomePage
-
 
 # Scenario Outline: Check total products price
 @when("I add {products_qty} random products to cart")

@@ -89,7 +89,5 @@ class PaymentPage(CheckoutPage):
         self.driver.find_element(*PaymentPageLocators.CONFIRM_ORDER).click()
 
     def check_order_was_created(self):
-        if self.driver.find_element(*PaymentPageLocators.COMPLETE_ORDER_INFORMATION).text == "Your order on My Store is complete.":
-            return True
-        else:
-            return False
+        return self.driver.find_element(*PaymentPageLocators.COMPLETE_ORDER_INFORMATION).text \
+               == "Your order on My Store is complete."

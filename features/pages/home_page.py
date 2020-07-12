@@ -58,10 +58,7 @@ class HomePage(BasePage):
         self.driver.find_element(*HomePageLocators.PROCEED_TO_CHECKOUT).click()
 
     def check_search_warning_displayed(self):
-        if len(self.driver.find_elements(*HomePageLocators.SEARCH_WARNING)) > 0:
-            return True
-        else:
-            return False
+        return len(self.driver.find_elements(*HomePageLocators.SEARCH_WARNING)) > 0
 
     def check_search_results(self, search_keyword):
         products = self.driver.find_elements(*HomePageLocators.PRODUCTS_LIST)
@@ -74,7 +71,5 @@ class HomePage(BasePage):
         return True
 
     def check_product_added_successfully(self):
-        if len(self.driver.find_elements(*HomePageLocators.LABEL_SUCCESSFULLY_ADDED_PRODUCT)) > 0:
-            return True
-        else:
-            return False
+        return len(self.driver.find_elements(*HomePageLocators.LABEL_SUCCESSFULLY_ADDED_PRODUCT)) > 0
+
